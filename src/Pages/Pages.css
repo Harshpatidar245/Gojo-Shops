@@ -1,0 +1,283 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* CSS for navbar cart */
+.login_new{
+  width: 100vw;
+}
+
+.nav-login-cart{
+    display: flex;
+    align-items: center;
+    gap: 45px;
+}
+.nav-login-cart button{
+    width: 117px;
+    height: 46px;
+    outline: none;
+    border: 1px solid #7a7a7a;
+    border-radius: 75px;
+    color: #515151;
+    font-size: 20px;
+    font-weight: 500;
+    background: white;
+    cursor: pointer;
+}
+.nav-login-cart button:active{
+    background: #f3f3f3;
+}
+.nav-cart-count{
+    width: 22px;
+    height: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -35px;
+    margin-left: -55px;
+    border-radius: 11px;
+    font-size: 14px;
+    background: red;
+    color: white;
+}
+/* .navbar-content{
+  position: relative;
+  top: 80px; 
+  z-index: 0;
+} */
+
+/* home styling */
+
+.latest-trends {
+  margin-top: 4rem;
+  margin-bottom: 3.4rem;
+  font-size: 3.7rem;
+  position: relative;
+  display: inline-block; /* Ensures the underline animation only affects the text itself */
+}
+
+.latest-trends::after {
+  content: "";
+  position: absolute;
+  left: 0; /* Set the initial left position to start from the left edge */
+  right: 0; /* Set the initial right position to start from the right edge */
+  bottom: 0;
+  width: 0; /* Initially, set the width to 0 */
+  height: 4px; /* Increased height for a thicker underline */
+  background-color: transparent; /* Initially transparent */
+  transition: width 0.5s ease, left 0.5s ease, right 0.5s ease; /* Slow transition for width and left/right position */
+  margin: 0 auto; /* Center the underline horizontally */
+}
+
+.latest-trends:hover::after {
+  width: 100%; /* Set the width to 100% to extend the underline */
+  left: 0; /* Set left to 0 to ensure it starts from the left edge */
+  right: 0; /* Set right to 0 to ensure it starts from the right edge */
+  background-color: black; /* Color of the underline on hover */
+}
+
+.product-blocks {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.product-block {
+  width: 350px;
+}
+
+.product-block img {
+  width: 100%;
+}
+
+.product-block p {
+  margin: 6px 0px;
+}
+
+/* css for popular in womens */
+
+.item-prices {
+  display: flex;
+  gap: 20px;
+}
+
+.item-price-new {
+  color: #374151;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.item-price-old {
+  color: #8c8c8c;
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: line-through;
+}
+
+.product-block:hover {
+  transform: scale(1.05);
+  transition: 0.6s;
+}
+
+/* CSS for Offers  */
+
+
+.offers{
+    width: 83%;
+    height: 70vh;
+    display: flex;
+    margin: auto;
+    margin-top: 8rem;
+    margin-bottom: 0.7rem;
+    padding: 0px 140px;
+    background: linear-gradient(180deg, #fde1ff 0%, #e1ffea22 60%);
+}
+.offers-left{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.offers-left h1{
+    color: #171717;
+    font-size: 80px;
+    font-weight: 600;
+}
+.offer-left p{
+    color: #171717;
+    font-size: 22px;
+    font-weight: 600;
+}
+.offers-left button{
+    width: 282px;
+    height: 70px;
+    border-radius: 35px;
+    background: #ff4141;
+    border: none;
+    color: white;
+    font-size: 22px;
+    font-weight: 500;
+    margin-top: 30px;
+    cursor: pointer;
+}
+.offers-right{
+    flex: 1;
+    display: flex;
+    align-items:center ;
+    justify-content: flex-end;
+    padding-top: 50px;
+}
+
+/* css for new collection  */
+
+.collection_title {
+  margin-top: 6.9rem;
+  margin-bottom: 0.7rem;
+  font-size: 3.7rem;
+}
+
+.new-collections {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 100px;
+}
+
+.new-collections h1 {
+  color: #171717;
+  font-size: 50px;
+  font-weight: 600;
+  position: relative;
+}
+
+.new-collections h1::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -10px; /* Adjust this value as needed */
+  width: 0;
+  height: 4px; /* Adjusted height for a thicker underline */
+  background-color: transparent;
+  transition: width 0.5s ease, left 0.5s ease, right 0.5s ease;
+  margin: 0 auto;
+}
+
+.new-collections h1:hover::after {
+  width: 100%;
+  left: 0;
+  right: 0;
+  bottom: -10px; /* Adjust this value as needed */
+  background-color: black;
+}
+
+.collections {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-top: 50px;
+  gap: 30px;
+}
+
+
+/* CSS for Footer  */
+
+.footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+.footer-logo{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.footer-logo p{
+    color: #383838;
+    font-size: 46px;
+    font-weight: 700;
+
+}
+.footer-links{
+    display: flex;
+    list-style: none;
+    gap: 50px;
+    color: #252525;
+    font-size: 20px;
+}
+.footer-links li{
+    cursor: pointer;
+}
+.footer-social-icon{
+    display: flex;
+    gap: 20px;
+}
+.footer-icon-container{
+    padding: 10px;
+    padding-bottom: 6px;
+    background: #fbfbfb;
+    border: 1px solid #ebebeb;
+}
+.footer-copyright{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    margin-bottom: 30px;
+    color: #1a1a1a;
+    font-size: 20px;
+}
+.footer-copyright hr{
+    width: 80%;
+    border: none;
+    border-radius: 10px;
+    height: 3px;
+    background: #c7c7c7;
+}
