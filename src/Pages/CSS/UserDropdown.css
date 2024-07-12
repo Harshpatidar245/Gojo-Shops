@@ -1,0 +1,19 @@
+/* Remove hover effect for the dropdown button */
+#dropdown-basic-button.btn-primary {
+    background-color: initial; /* or specify your preferred background color */
+}
+
+#dropdown-basic-button.btn-primary:hover,
+#dropdown-basic-button.btn-primary:focus,
+#dropdown-basic-button.btn-primary:active,
+#dropdown-basic-button.btn-primary.active,
+.show > .btn-primary.dropdown-toggle {
+    background-color: initial; /* or specify your preferred background color */
+    border-color: initial; /* or specify your preferred border color */
+}
+/* .dropdown-button-profile{
+    width: 100px;
+}
+.user-profile-img{
+    padding: 0;
+} */

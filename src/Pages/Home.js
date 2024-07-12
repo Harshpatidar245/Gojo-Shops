@@ -1,16 +1,14 @@
 import React, { useState } from "react";
-import "./Pages.css";
+// import "./Pages.css";
+import './CSS/Home.css'
 import Carousel from "react-bootstrap/Carousel";
 import SliderImage from "../Images/Slider-image-1.jpg";
 import SliderImage2 from "../Images/Slider-image-2.jpg";
 import SliderImage3 from "../Images/Slider-image-3.jpg";
 import data_product from "../Components/Assets/data";
 import new_collection from "../Components/Assets/new_collections";
-import exclusive_image from '../Components/Assets/exclusive_image.png'
+import exclusive_image from "../Components/Assets/exclusive_image.png";
 import { Link } from "react-router-dom";
-
-
-
 
 function ControlledCarousel() {
   const [index, setIndex] = useState(0);
@@ -61,13 +59,14 @@ function ControlledCarousel() {
         </Carousel.Item>
       </Carousel>
 
-      {/* this is the code for popular in womens  */}
-
+      {/* Popular in Women */}
       <h1 className="latest-trends">POPULAR IN WOMEN</h1>
       <div className="product-blocks">
         {data_product.map((product) => (
           <div key={product.id} className="product-block">
-             <Link to={`product/${product.id}`}><img src={product.image} alt="New Collection" /></Link>
+            <Link to={`product/${product.id}`}>
+              <img src={product.image} alt="New Collection" />
+            </Link>
             <p>{product.name}</p>
             <div className="item-prices">
               <div className="item-price-new">₹{product.new_price}</div>
@@ -77,8 +76,7 @@ function ControlledCarousel() {
         ))}
       </div>
 
-      {/* this is the code for Offers page */}
-
+      {/* Offers Section */}
       <div className="offers">
         <div className="offers-left">
           <h1>Exclusive</h1>
@@ -91,17 +89,15 @@ function ControlledCarousel() {
         </div>
       </div>
 
-      {/* this is the code for new collection page  */}
-
+      {/* New Collections Section */}
       <div className="new-collections">
         <h1 className="collection_title">NEW COLLECTIONS</h1>
-        {/* <hr /> */}
         <div className="collections">
           {new_collection.map((product, i) => (
             <div key={i} className="product-block">
-             <Link to={`product/${product.id}`}><img src={product.image} alt="New Collection" /></Link>
-            
-                          
+              <Link to={`product/${product.id}`}>
+                <img src={product.image} alt="New Collection" />
+              </Link>
               <p>{product.name}</p>
               <div className="item-prices">
                 <div className="item-price-new">₹{product.new_price}</div>

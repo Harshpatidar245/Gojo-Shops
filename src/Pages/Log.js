@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../Context/AuthContext";
 import axios from "axios";
+import { FaEye, FaEyeSlash } from "react-icons/fa"; // Import FaEye and FaEyeSlash icons
 
 const inputClasses =
   "shadow appearance-none border rounded w-full py-2 px-3 text-zinc-700 leading-tight focus:outline-none focus:shadow-outline";
@@ -11,30 +13,39 @@ const buttonClasses =
 const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { login, isAuthenticated } = useContext(AuthContext);
   const [error, setError] = useState('');
+  const [showPassword, setShowPassword] = useState(false); // Define showPassword state variable
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/userdata');
+    }
+  }, [isAuthenticated, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Submitting login form:', { email, password });
+    console.log("Submitting login form:", { email, password });
     try {
-      const result = await axios.post("http://localhost:3000/login", { email, password });
-      console.log('Login response:', result.data);
+      const result = await axios.post("http://localhost:3000/login", {
+        email,
+        password,
+      });
+      console.log("Login response:", result.data);
       const token = result.data.token;
       if (token) {
-        localStorage.setItem('token', token); // Save JWT token
-        console.log('Logged in successfully');
-        alert('you have sucessfully logged in ')
-        navigate('/userdata'); // Redirect to userdata page
+        sessionStorage.setItem("token", token); 
+        console.log("Logged in successfully");
+        navigate("/userdata"); 
       } else {
         console.log("Login failed");
-        
-        setError('Invalid email or password');
+        setError("Invalid email or password");
       }
-    } catch (err) {
-      console.error('Login error:', err);
-      alert('please write correct information')
-      setError('Invalid email or password');
+    } catch (error) {
+      console.error("Login error:", error);
+      alert("please write correct information");
+      setError("Invalid email or password");
     }
   };
 
@@ -60,14 +71,22 @@ const LoginForm = () => {
             <label htmlFor="password" className={labelClasses}>
               Password
             </label>
-            <input
-              type="password"
-              id="password"
-              className={inputClasses}
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
+            <div className="bg-slate-100 p-2 flex  bg-white shadow-lg  rounded-md outline outline-gray-300 outline-1"> 
+              <input
+                type={showPassword ? "text" : "password"} // Toggle input type
+                id="password"
+                className="w-full h-full outline-none bg-white "
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+              <div
+                className="cursor-pointer text-xl"
+                onClick={() => setShowPassword((prev) => !prev)} // Toggle showPassword state
+              >
+                {showPassword ? <FaEye /> : <FaEyeSlash />}
+              </div>
+            </div>
           </div>
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center">
@@ -87,7 +106,7 @@ const LoginForm = () => {
               to="/signup"
               className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
             >
-              Already a member?
+              Not a member?
             </Link>
           </div>
           <button type="submit" className={buttonClasses}>

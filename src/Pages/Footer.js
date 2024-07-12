@@ -3,6 +3,9 @@ import footer_logo from "../Components/Assets/logo_big.png";
 import instagram_icon from "../Components/Assets/instagram_icon.png";
 import pintester_icon from "../Components/Assets/pintester_icon.png";
 import whatsapp_icon from "../Components/Assets/whatsapp_icon.png";
+import './CSS/Footer.css'
+
+
 
 const Footer = () => {
   return (
