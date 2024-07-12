@@ -30,7 +30,9 @@ const RegisterForm = () => {
         }
         setError(""); // Clear error if passwords match
 
-        axios.post('http://localhost:3000/SignUp', {
+        axios.post(
+          'http://localhost:3000/SignUp', 
+          {
             name,
             email,
             password,
